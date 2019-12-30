@@ -1,2 +1,2 @@
 # thinkTypeScript
-Scripts do livro Think TypeScript
+Scripts do livro TypeScript Deep Dive
