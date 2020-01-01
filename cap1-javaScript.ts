@@ -152,3 +152,85 @@ outerFunction('clojure')
 // a função bar() no interior consegue acessar a variável de escopo acima
 // 
 
+// Classes e abstração
+// definindo uma classe nova, Point
+
+class Point {
+    x: number,
+    y: number 
+
+    constructor(x: number, y: number) { // construtor da classe
+        this.x = x
+        this.y = y
+    }
+
+    add(point: Point) { // método para a classe
+        return new Point(this.x + point.x, this.y + point.y)
+    }
+
+    multiply(point: Point) { // outros métodos
+        return new Point(this.x * point.x, this.y * point.y)
+    }
+
+    scale(number: k) { // outros métodos
+        return new Point(k * Point.x, k * Point.y)
+    }
+}
+
+var p1 = new Point(10, 20)
+var p2 = new Point(30, 10)
+var p3 = p1.add(p2)
+var p4 = p1.multiply(p2)
+var p5 = p1.scale(5)
+
+/////////// criação de variáveis com var
+
+// var tem escopo de função
+
+var foo = 123
+
+if(true) {
+    var foo = 456
+}
+
+console.log(foo) // apesar do escopo dentro de {}, var é assim
+
+// isso faz parte do design de JS, que é function-scoped
+// let substitui esse problema e institui block-scope
+
+let bar = 123
+
+if (true) {
+    var bar = 456 // erro de cannot redeclare block-scoped variable
+}
+
+console.log(bar)
+
+// const para variáveis que você prefere que sejam imutaveis
+
+/// spread
+
+function foo2(x, y, z) { }
+
+var args = [0, 1, 2]
+
+foo2(args)
+
+//// loops 
+
+let someArray = [9, 15, 20, 123, 533, 594, 2, 13]
+
+for(let item in someArray) {
+    console.log(item) // printa os indices!!
+}
+
+
+for(let item of someArray) {
+    console.log(item) // printa os valores
+}
+
+
+
+
+
+
